@@ -95,18 +95,6 @@
         "method": "default"
       },
       {
-        "rule_set": [
-          "geosite-category-ads-all",
-          "geosite-malware",
-          "geosite-phishing",
-          "geosite-cryptominers",
-          "geoip-malware",
-          "geoip-phishing"
-        ],
-        "action": "reject",
-        "method": "default"
-      },
-      {
         "inbound": "tun-in",
         "action": "resolve"
       },
