@@ -1,0 +1,101 @@
+{
+  "log": {
+    "loglevel": "none"
+  },
+  "dns": {
+    "servers": [
+        "8.8.8.8",
+        "8.8.4.4"
+    ],
+    "queryStrategy": "UseIPv4",
+    "disableFallback": false
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+          "udp": true
+      },
+      "sniffing": {
+          "enabled": true,
+          "destOverride": [
+              "http",
+              "tls",
+              "quic"
+          ],
+          "routeOnly": false
+      }
+  },
+  {
+      "listen": "127.0.0.1",
+      "port": 10853,
+      "protocol": "dokodemo-door",
+      "settings": {
+          "address": "8.8.8.8",
+          "port": 53,
+          "network": "udp"
+      },
+      "tag": "dns-in"
+  }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "...":"..."
+    },
+    {
+      "protocol": "freedom",
+      "settings": {
+          "domainStrategy": "ForceIPv4"
+      },
+      "tag": "direct"
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    },
+    {
+      "protocol": "dns",
+      "settings": {
+          "nonIPQuery": "drop"
+      },
+      "proxySettings": {
+          "tag": "proxy"
+      },
+      "tag": "dns-out"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+        {
+            "inboundTag": [
+                "dns-in"
+            ],
+            "outboundTag": "dns-out"
+        },
+        {
+            "port": "853",
+            "network": "tcp",
+            "outboundTag": "block"
+        },
+        {
+            "port": "443,853",
+            "network": "udp",
+            "outboundTag": "block"
+        },
+        {
+            "ip": [
+                "8.8.8.8"
+            ],
+            "outboundTag": "proxy"
+        },
+        {
+        "type": "field", "port": 53, "network": "tcp,udp", "outboundTag": "dns-out"
+        }
+    ]
+  },
+  "remarks": "🇩🇪 Germany"
+}
