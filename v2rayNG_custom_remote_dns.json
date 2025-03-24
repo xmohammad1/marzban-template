@@ -48,7 +48,7 @@
     {
       "protocol": "freedom",
       "settings": {
-          "domainStrategy": "ForceIPv4"
+          "domainStrategy": "AsIs"
       },
       "tag": "direct"
     },
