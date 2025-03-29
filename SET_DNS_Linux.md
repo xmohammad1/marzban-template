@@ -117,7 +117,10 @@ If DNS resolution isn't working as expected:
    It should point to `/run/systemd/resolve/stub-resolv.conf`.
 
 ## Additional Notes
-
+if DNS is not fully set you can search which files contain dns
+```
+grep -r "2.56.220.2" /etc/
+```
 - If your system uses a VPN or other network managers, they might override these settings.
 - For a consistent configuration, you may want to disable other DNS resolvers that might conflict with systemd-resolved.
 
