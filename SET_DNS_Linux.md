@@ -40,10 +40,10 @@ network:
                 macaddress: 96:00:04:1e:be:7e
             nameservers:
                 addresses:
+                    - 1.1.1.1
                     - 8.8.8.8
-                    - 8.8.4.4
+                    - 2606:4700:4700::1111
                     - 2001:4860:4860::8888
-                    - 2001:4860:4860::8844
 ```
 
 ### Step 4: Apply the configuration
