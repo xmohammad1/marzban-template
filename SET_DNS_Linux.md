@@ -1,4 +1,4 @@
-# Setting Google DNS on Ubuntu 22.04
+# Setting DNS on Ubuntu 22.04
 
 This guide demonstrates how to configure Google DNS servers on Ubuntu 22.04 using both Netplan and systemd-resolved.
 
