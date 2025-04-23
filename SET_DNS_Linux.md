@@ -2,6 +2,11 @@
 ```
 cat /etc/resolv.conf && sudo rm -f /etc/resolv.conf && echo -e "nameserver 8.8.8.8\nnameserver 1.1.1.1" | sudo tee /etc/resolv.conf > /dev/null && cat /etc/resolv.conf
 ```
+or
+```
+cat /etc/resolv.conf && sudo rm -f /etc/resolv.conf && echo -e "nameserver 1.1.1.1\nnameserver 8.8.8.8" | sudo tee /etc/resolv.conf > /dev/null && cat /etc/resolv.conf
+```
+
 This guide demonstrates how to configure Google DNS servers on Ubuntu 22.04 using both Netplan and systemd-resolved.
 
 ## Method 1: Using Netplan
