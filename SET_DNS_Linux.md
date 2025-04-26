@@ -118,7 +118,8 @@ If DNS resolution isn't working as expected:
    ```bash
    ls -l /etc/resolv.conf
    ```
-   It should point to `/run/systemd/resolve/stub-resolv.conf`.
+   to point
+   ```ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf```
 
 ## Additional Notes
 if DNS is not fully set you can search which files contain dns
