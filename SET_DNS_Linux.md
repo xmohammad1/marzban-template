@@ -85,7 +85,8 @@ Uncomment or add the DNS line and add Google's DNS servers:
 
 ```
 [Resolve]
-DNS=1.1.1.1 8.8.8.8
+DNS=1.1.1.1
+FallbackDNS=8.8.8.8
 ```
 
 ### Step 3: Restart systemd-resolved
